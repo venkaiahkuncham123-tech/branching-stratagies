@@ -4,4 +4,7 @@ This lined is added after staging
 
 This is added after adding into the staging area
 
-Text is added in Local Repo
+
+
+Some Text is added in the Remote Repo
+>>>>>>> 452e6205899bba6c2e99693bbdb176d6746f4083
