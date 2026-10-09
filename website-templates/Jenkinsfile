@@ -1,0 +1,43 @@
+pipeline {
+    agent {
+        label 'slave 1'
+    }
+  parameters {
+      string(name: IMAGE_NAME , default_value: 'version', description: 'Enter Image Name')
+      booelan(name: SONAR_INT , defautl_value: false , description: 'Do you need sonarqube integration')
+  }
+  stages {
+      stage('Git Check out') {
+          steps {
+              sh 'echo git repo cloned'
+          }
+      }
+    stage('Git Leaks Scan') {
+        steps {
+            sh 'echo git repo is scanned'
+        }
+    }
+    stage('Trivy dependency scan') {
+      steps {
+          sh 'echo dependencies have been scaneed' 
+      }
+    }
+    stage('Installing dependencies'){
+      steps {
+          sh 'echo dependencies have been installed' 
+      }
+    }
+  }
+  post{
+      always {
+          echo 'Job has been completed'
+      }
+    failure {
+        echo 'Email has been sent to the user'
+    }
+    success {
+        sh 'echo invoking CD job'
+      sleep(10)
+      shc 'echo CD job has been triggered'
+    }
+  }
