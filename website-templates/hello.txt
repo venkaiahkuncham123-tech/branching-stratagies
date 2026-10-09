@@ -3,5 +3,4 @@ This is a Untracked file
 This lined is added after staging
 
 This is added after adding into the staging area
-
 Some Text is added in Local Repo
